@@ -423,10 +423,11 @@ $('rows').innerHTML=l.length?l.map(j=>`<tr class="${j.status=='new'?'new':''}"><
 <div>${j.apply_url&&!/linkedin\.com/.test(j.apply_url)?'<span class="tag g">direct apply</span> ':(j.source=='linkedin'?'<span class="tag w">LinkedIn only</span> ':'')}${j.ref?'<span class="tag g">referral</span> ':''}${j.notes?'<span class="mut">'+esc(j.notes)+'</span>':''}</div>${peopleHtml(j)}</td>
 <td class="hide-s mut">${esc(j.location)}<div><span class="tag">${esc(j.source)}</span></div></td>
 <td><select onchange="setSt('${j.id}',this.value)">${ST.map(s=>`<option ${s==j.status?'selected':''}>${s}</option>`).join('')}</select></td>
-<td class="act">${j.busy?`<span class="mut">${j.busy}…</span>`:(j.files.cv?`<button class="p" onclick="openKit('${j.id}')">Apply kit</button><a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.cv)}">CV</a><a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.letter||'')}">Letter</a>${j.files.prep?`<a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.prep)}">Prep</a>`:`<button onclick="prep('${j.id}')">Prep</button>`}<button onclick="draft('${j.id}')">Redo</button>`:`<button class="p" onclick="draft('${j.id}')">Draft CV</button>`)}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">Nothing here.</td></tr>'}
+<td class="act">${j.busy?`<span class="mut">${j.busy}…</span>`:(j.files.cv?`<button class="p" onclick="openKit('${j.id}')">Apply kit</button><a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.cv)}">CV</a><a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.letter||'')}">Letter</a>${prepBtns(j)}<button onclick="draft('${j.id}')">Redo</button>`:`<button class="p" onclick="draft('${j.id}')">Draft CV</button>${prepBtns(j)}`)}</td></tr>`).join(''):'<tr><td colspan="5" class="empty">Nothing here.</td></tr>'}
 async function setSt(id,s){let stage;if(s=='rejected'){const a=prompt('How far did this get before the rejection?\n1 = application only\n2 = task / test\n3 = interview','1');if(a===null){await load();return}stage={'1':'application','2':'task','3':'interview'}[a.trim()]||'application'}await api('/api/status',{id,status:s,stage});await load()}
 async function draft(id){await api('/api/draft',{id});poll()}
 async function prep(id){await api('/api/prep',{id});poll()}
+function prepBtns(j){return j.files.prep?`<a class="b" target="_blank" href="/file?p=${encodeURIComponent(j.files.prep)}">Prep</a><button onclick="prep('${j.id}')" title="Write the interview prep again">Redo prep</button>`:`<button onclick="prep('${j.id}')">Prep</button>`}
 async function runAll(){$('msg').textContent='Searching…';await api('/api/run',{draft:true});poll()}
 async function runSearch(){$('msg').textContent='Searching…';await api('/api/run',{draft:false});poll()}
 let timer;function poll(){clearTimeout(timer);timer=setTimeout(async()=>{const s=await api('/api/status');$('log').textContent=s.log||'—';$('log').scrollTop=1e9;
@@ -444,10 +445,10 @@ h+=`<div class="blk"><h4>Get seen (skip LinkedIn Easy Apply)</h4>${k.seen.map(c=
 h+=blk(n++,'LinkedIn note to a recruiter or hiring manager (under 300 characters)',k.linkedin_note);
 h+=`<div class="blk"><h4>Before you submit</h4>${k.checklist.map(c=>`<div>${c.ok?'<span class="ok">✔</span>':'☐'} ${esc(c.t)}</div>`).join('')}</div>`;
 if(k.referral)h+=blk(n++,`Referral: ${esc(k.referral.contact)} (${esc(k.referral.relation)})`,k.referral.message,'need');
-h+=blk(n++,'Cover letter',k.letter||'(none yet)');
+if(k.letter)h+=blk(n++,'Cover letter',k.letter);
 h+=`<h4 style="margin:14px 0 0">Form answers</h4><p class="mut">Orange = you must fill these in yourself (edit in Settings → answers.json).</p>`;
 k.answers.forEach(a=>{h+=blk(n++,esc(a.q),a.a,a.needs_input?'need':'')});
-h+=`<p>${k.files.prep?`<a class="b" style="padding:6px 12px" target="_blank" href="/file?p=${encodeURIComponent(k.files.prep)}">Interview prep</a>`:`<button onclick="prep('${id}');kitDlg.close()">Generate interview prep</button>`}</p>`;
+h+=`<p>${k.files.prep?`<a class="b" style="padding:6px 12px" target="_blank" href="/file?p=${encodeURIComponent(k.files.prep)}">Interview prep</a> <button onclick="prep('${id}');kitDlg.close()">Redo prep</button>`:`<button onclick="prep('${id}');kitDlg.close()">Generate interview prep</button>`}</p>`;
 if(k.notes)h+=`<div class="blk"><h4>Fit notes, ATS coverage and gaps</h4><pre>${esc(k.notes)}</pre></div>`;
 $('kit').innerHTML=h;kitDlg.showModal()}
 async function markApplied(id){await api('/api/status',{id,status:'applied'});kitDlg.close();load()}

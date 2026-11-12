@@ -54,12 +54,15 @@ def outreach(r, contact):
 
 
 def answers_for(r, d):
-    why = (d or {}).get("why_us") or f"I am interested in the {r['title']} role at {r['company']} because it matches my background and the work I enjoy. [Edit: add one specific thing about {r['company']}.]"
+    why = (d or {}).get("why_us") or ""
     summ = (d or {}).get("summary", "")
     out = []
     for it in load("answers.json", {}).get("items", []):
         a = it["a"].replace("{company}", r["company"]).replace("{role}", r["title"]).replace("{why_us}", why).replace("{summary}", summ)
-        out.append({"q": it["q"].replace("{company}", r["company"]), "a": a, "needs_input": it.get("needs_input", False)})
+        if a.strip().upper().startswith("TODO"):
+            a = ""  # no filler text in the kit: an empty orange block means "you fill this in"
+        need = it.get("needs_input", False) or (not a.strip() and "{why_us}" in it["a"])  # no draft yet: ask the person instead of showing filler text
+        out.append({"q": it["q"].replace("{company}", r["company"]), "a": a, "needs_input": need})
     return out
 
 
