@@ -1,0 +1,879 @@
+{
+ "max_age_days": 7,
+ "fast_max_age_days": 3,
+ "background_max_age_days": 7,
+ "fast_sources": [
+  "linkedin",
+  "greenhouse",
+  "lever",
+  "ashby",
+  "smartrecruiters",
+  "recruitee",
+  "workday",
+  "eures",
+  "amazon",
+  "wwr_all",
+  "remotive_all",
+  "authenticjobs",
+  "skipthedrive",
+  "jobspresso",
+  "workingnomads",
+  "remoteok",
+  "comeet",
+  "ultipro"
+ ],
+ "background_sources": [
+  "remotive",
+  "remoteok",
+  "arbeitnow",
+  "jobicy",
+  "himalayas",
+  "wwr",
+  "workingnomads",
+  "workable",
+  "remocate",
+  "amazon",
+  "amazon_virtual",
+  "google",
+  "microsoft",
+  "jobspresso",
+  "generalist",
+  "bigco_workday"
+ ],
+ "min_score": 30,
+ "tailor_top_n": 5,
+ "companies": {
+  "greenhouse": [
+   "adyen",
+   "airbnb",
+   "airtable",
+   "algolia",
+   "asana",
+   "attentive",
+   "bitgo",
+   "bitpanda",
+   "blockchain",
+   "bloomreach",
+   "braze",
+   "brex",
+   "cabify",
+   "calendly",
+   "canonical",
+   "celonis",
+   "cleo",
+   "cloudflare",
+   "cognite",
+   "coinbase",
+   "commercetools",
+   "consensys",
+   "contentful",
+   "databricks",
+   "datadog",
+   "dataiku",
+   "deliveroo",
+   "discord",
+   "doctolib",
+   "dropbox",
+   "ebury",
+   "elastic",
+   "figma",
+   "fireblocks",
+   "flexport",
+   "gemini",
+   "getyourguide",
+   "gitlab",
+   "gocardless",
+   "goodtime",
+   "grafanalabs",
+   "greenhouse",
+   "gusto",
+   "hellofresh",
+   "instacart",
+   "intercom",
+   "justworks",
+   "klaviyo",
+   "lattice",
+   "lithic",
+   "lyft",
+   "mercury",
+   "mirakl",
+   "mixpanel",
+   "mongodb",
+   "monzo",
+   "n26",
+   "netlify",
+   "okta",
+   "pagerduty",
+   "pinterest",
+   "postscript",
+   "project44",
+   "reddit",
+   "remote",
+   "ripple",
+   "salesloft",
+   "samsara",
+   "squarespace",
+   "storyblok",
+   "stripe",
+   "sumologic",
+   "sumup",
+   "tide",
+   "truelayer",
+   "trustpilot",
+   "twilio",
+   "typeform",
+   "vercel",
+   "wallapop",
+   "webflow",
+   "wise",
+   "yotpo",
+   "zuora",
+   "bitwarden",
+   "mozilla",
+   "ramp",
+   "veriff",
+   "invisible",
+   "turing",
+   "lokalise",
+   "fivetran",
+   "descript",
+   "ghost",
+   "medium",
+   "duolingo",
+   "coursera",
+   "udemy",
+   "wikimedia",
+   "khanacademy",
+   "mattermost",
+   "cultureamp",
+   "okx",
+   "binance",
+   "appodeal",
+   "bybit",
+   "careem",
+   "jetbrains",
+   "mentimeter",
+   "nebius",
+   "toloka",
+   "wheely",
+   "whitebit",
+   "wolt",
+   "wrike"
+  ],
+  "lever": [
+   "anchorage",
+   "bazaarvoice",
+   "contentsquare",
+   "jobandtalent",
+   "moonpay",
+   "okendo",
+   "outreach",
+   "pipedrive",
+   "qonto",
+   "swapcard",
+   "tala",
+   "tinybird",
+   "toptal",
+   "zopa",
+   "yuno",
+   "15five",
+   "crypto",
+   "genesis",
+   "planner5d"
+  ],
+  "ashby": [
+   "1password",
+   "airwallex",
+   "alan",
+   "alchemy",
+   "amplitude",
+   "andela",
+   "ashby",
+   "atlas",
+   "babbel",
+   "backmarket",
+   "bitvavo",
+   "buffer",
+   "circle",
+   "clarity",
+   "clark",
+   "clearco",
+   "clickup",
+   "close",
+   "column",
+   "consensys",
+   "constructor",
+   "crisp",
+   "directive",
+   "dodo",
+   "elevenlabs",
+   "flink",
+   "focus",
+   "formula",
+   "forto",
+   "gismart",
+   "gorgias",
+   "headway",
+   "helpscout",
+   "hex",
+   "hostinger",
+   "improbable",
+   "iterable",
+   "kiwi-com",
+   "ledger",
+   "lemon-io",
+   "lemonade",
+   "lendable",
+   "linear",
+   "lunar",
+   "mapbox",
+   "metaview",
+   "miro",
+   "modernTreasury",
+   "mollie",
+   "morningconsult",
+   "moss",
+   "netboxlabs",
+   "nord-security",
+   "notion",
+   "oyster",
+   "paddle",
+   "paxos",
+   "pennylane",
+   "plaid",
+   "pleo",
+   "posthog",
+   "preply",
+   "qonto",
+   "rain",
+   "ramp",
+   "sandboxaq",
+   "sanity",
+   "sentry",
+   "snyk",
+   "stedi",
+   "substack",
+   "sunday",
+   "supabase",
+   "supercell",
+   "surfshark",
+   "synthesia",
+   "tango",
+   "thought-machine",
+   "tractable",
+   "unit",
+   "upvest",
+   "velocity",
+   "wealthsimple",
+   "webflow",
+   "zapier",
+   "zeely",
+   "zego"
+  ],
+  "smartrecruiters": [
+   "bigcommerce",
+   "canva",
+   "dataiku",
+   "deliveryhero",
+   "freshworks",
+   "gong",
+   "gousto",
+   "hibob",
+   "justworks",
+   "omio",
+   "shippeo",
+   "wise",
+   "gcore",
+   "joom",
+   "playtech"
+  ],
+  "recruitee": [
+   "bunq",
+   "personio",
+   "holded",
+   "podia",
+   "bitfinex",
+   "prisma",
+   "kodland"
+  ]
+ },
+ "workday": [
+  {
+   "name": "Santander",
+   "host": "santander.wd3.myworkdayjobs.com",
+   "tenant": "santander",
+   "site": "santandercareers"
+  },
+  {
+   "name": "Accenture",
+   "host": "accenture.wd103.myworkdayjobs.com",
+   "tenant": "accenture",
+   "site": "accenturecareers"
+  },
+  {
+   "name": "BBVA",
+   "host": "bbva.wd3.myworkdayjobs.com",
+   "tenant": "bbva",
+   "site": "bbva"
+  },
+  {
+   "name": "Salesforce",
+   "host": "salesforce.wd12.myworkdayjobs.com",
+   "tenant": "salesforce",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Visa",
+   "host": "visa.wd5.myworkdayjobs.com",
+   "tenant": "visa",
+   "site": "visa"
+  },
+  {
+   "name": "Novartis",
+   "host": "novartis.wd3.myworkdayjobs.com",
+   "tenant": "novartis",
+   "site": "novartis_careers"
+  },
+  {
+   "name": "Medtronic",
+   "host": "medtronic.wd1.myworkdayjobs.com",
+   "tenant": "medtronic",
+   "site": "medtroniccareers"
+  },
+  {
+   "name": "Stryker",
+   "host": "stryker.wd1.myworkdayjobs.com",
+   "tenant": "stryker",
+   "site": "strykercareers"
+  },
+  {
+   "name": "Pfizer",
+   "host": "pfizer.wd1.myworkdayjobs.com",
+   "tenant": "pfizer",
+   "site": "pfizercareers"
+  },
+  {
+   "name": "Sanofi",
+   "host": "sanofi.wd3.myworkdayjobs.com",
+   "tenant": "sanofi",
+   "site": "sanoficareers"
+  },
+  {
+   "name": "GSK",
+   "host": "gsk.wd5.myworkdayjobs.com",
+   "tenant": "gsk",
+   "site": "gskcareers"
+  },
+  {
+   "name": "Thermo Fisher",
+   "host": "thermofisher.wd5.myworkdayjobs.com",
+   "tenant": "thermofisher",
+   "site": "thermofishercareers"
+  },
+  {
+   "name": "Workday",
+   "host": "workday.wd5.myworkdayjobs.com",
+   "tenant": "workday",
+   "site": "workday"
+  },
+  {
+   "name": "Autodesk",
+   "host": "autodesk.wd1.myworkdayjobs.com",
+   "tenant": "autodesk",
+   "site": "Ext"
+  },
+  {
+   "name": "IQVIA",
+   "host": "iqvia.wd1.myworkdayjobs.com",
+   "tenant": "iqvia",
+   "site": "IQVIA"
+  },
+  {
+   "name": "Wolters Kluwer",
+   "host": "wk.wd3.myworkdayjobs.com",
+   "tenant": "wk",
+   "site": "External"
+  },
+  {
+   "name": "Cigna",
+   "host": "cigna.wd5.myworkdayjobs.com",
+   "tenant": "cigna",
+   "site": "cignacareers"
+  },
+  {
+   "name": "Citi",
+   "host": "citi.wd5.myworkdayjobs.com",
+   "tenant": "citi",
+   "site": "2"
+  },
+  {
+   "name": "GDIT",
+   "host": "gdit.wd5.myworkdayjobs.com",
+   "tenant": "gdit",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Cencora",
+   "host": "myhrabc.wd5.myworkdayjobs.com",
+   "tenant": "myhrabc",
+   "site": "Global"
+  }
+ ],
+ "bigco_workday": [
+  {
+   "name": "Nvidia",
+   "host": "nvidia.wd5.myworkdayjobs.com",
+   "tenant": "nvidia",
+   "site": "nvidiaExternalCareerSite"
+  },
+  {
+   "name": "Adobe",
+   "host": "adobe.wd5.myworkdayjobs.com",
+   "tenant": "adobe",
+   "site": "external_experienced"
+  },
+  {
+   "name": "HP",
+   "host": "hp.wd5.myworkdayjobs.com",
+   "tenant": "hp",
+   "site": "ExternalCareerSite"
+  },
+  {
+   "name": "Intel",
+   "host": "intel.wd1.myworkdayjobs.com",
+   "tenant": "intel",
+   "site": "External"
+  },
+  {
+   "name": "Target",
+   "host": "target.wd5.myworkdayjobs.com",
+   "tenant": "target",
+   "site": "targetcareers"
+  },
+  {
+   "name": "Paypal",
+   "host": "paypal.wd1.myworkdayjobs.com",
+   "tenant": "paypal",
+   "site": "jobs"
+  },
+  {
+   "name": "Zoom",
+   "host": "zoom.wd5.myworkdayjobs.com",
+   "tenant": "zoom",
+   "site": "zoom"
+  },
+  {
+   "name": "Micron",
+   "host": "micron.wd1.myworkdayjobs.com",
+   "tenant": "micron",
+   "site": "External"
+  },
+  {
+   "name": "Centene",
+   "host": "centene.wd5.myworkdayjobs.com",
+   "tenant": "centene",
+   "site": "centene_external"
+  },
+  {
+   "name": "Mondelez",
+   "host": "mdlz.wd3.myworkdayjobs.com",
+   "tenant": "mdlz",
+   "site": "External"
+  },
+  {
+   "name": "Gilead",
+   "host": "gilead.wd1.myworkdayjobs.com",
+   "tenant": "gilead",
+   "site": "gileadcareers"
+  },
+  {
+   "name": "Regeneron",
+   "host": "regeneron.wd1.myworkdayjobs.com",
+   "tenant": "regeneron",
+   "site": "Careers"
+  },
+  {
+   "name": "T-Mobile",
+   "host": "tmobile.wd1.myworkdayjobs.com",
+   "tenant": "tmobile",
+   "site": "External"
+  },
+  {
+   "name": "Marsh McLennan",
+   "host": "mmc.wd1.myworkdayjobs.com",
+   "tenant": "mmc",
+   "site": "mmc"
+  },
+  {
+   "name": "AIG",
+   "host": "aig.wd1.myworkdayjobs.com",
+   "tenant": "aig",
+   "site": "aig"
+  },
+  {
+   "name": "Prudential",
+   "host": "prudential.wd3.myworkdayjobs.com",
+   "tenant": "prudential",
+   "site": "prudential"
+  },
+  {
+   "name": "Allstate",
+   "host": "allstate.wd5.myworkdayjobs.com",
+   "tenant": "allstate",
+   "site": "allstate_careers"
+  },
+  {
+   "name": "Travelers",
+   "host": "travelers.wd5.myworkdayjobs.com",
+   "tenant": "travelers",
+   "site": "External"
+  },
+  {
+   "name": "Cisco",
+   "host": "cisco.wd5.myworkdayjobs.com",
+   "tenant": "cisco",
+   "site": "cisco_careers"
+  },
+  {
+   "name": "Crowdstrike",
+   "host": "crowdstrike.wd5.myworkdayjobs.com",
+   "tenant": "crowdstrike",
+   "site": "crowdstrikecareers"
+  },
+  {
+   "name": "Workday",
+   "host": "workday.wd5.myworkdayjobs.com",
+   "tenant": "workday",
+   "site": "workday"
+  },
+  {
+   "name": "Thomsonreuters",
+   "host": "thomsonreuters.wd5.myworkdayjobs.com",
+   "tenant": "thomsonreuters",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Nasdaq",
+   "host": "nasdaq.wd1.myworkdayjobs.com",
+   "tenant": "nasdaq",
+   "site": "Global_External_Site"
+  },
+  {
+   "name": "Visa",
+   "host": "visa.wd5.myworkdayjobs.com",
+   "tenant": "visa",
+   "site": "visa"
+  },
+  {
+   "name": "PNC",
+   "host": "pnc.wd5.myworkdayjobs.com",
+   "tenant": "pnc",
+   "site": "External"
+  },
+  {
+   "name": "Truist",
+   "host": "truist.wd1.myworkdayjobs.com",
+   "tenant": "truist",
+   "site": "Careers"
+  },
+  {
+   "name": "Ally",
+   "host": "ally.wd1.myworkdayjobs.com",
+   "tenant": "ally",
+   "site": "ally"
+  },
+  {
+   "name": "Chevron",
+   "host": "chevron.wd5.myworkdayjobs.com",
+   "tenant": "chevron",
+   "site": "jobs"
+  },
+  {
+   "name": "Conocophillips",
+   "host": "conocophillips.wd1.myworkdayjobs.com",
+   "tenant": "conocophillips",
+   "site": "External"
+  },
+  {
+   "name": "Bakerhughes",
+   "host": "bakerhughes.wd5.myworkdayjobs.com",
+   "tenant": "bakerhughes",
+   "site": "BAKERHUGHES"
+  },
+  {
+   "name": "DuPont",
+   "host": "dupont.wd5.myworkdayjobs.com",
+   "tenant": "dupont",
+   "site": "jobs"
+  },
+  {
+   "name": "Ecolab",
+   "host": "ecolab.wd1.myworkdayjobs.com",
+   "tenant": "ecolab",
+   "site": "ecolab_external"
+  },
+  {
+   "name": "PPG",
+   "host": "ppg.wd5.myworkdayjobs.com",
+   "tenant": "ppg",
+   "site": "ppg_careers"
+  },
+  {
+   "name": "Baxter",
+   "host": "baxter.wd1.myworkdayjobs.com",
+   "tenant": "baxter",
+   "site": "baxter"
+  },
+  {
+   "name": "Abbott",
+   "host": "abbott.wd5.myworkdayjobs.com",
+   "tenant": "abbott",
+   "site": "abbottcareers"
+  },
+  {
+   "name": "Stryker",
+   "host": "stryker.wd1.myworkdayjobs.com",
+   "tenant": "stryker",
+   "site": "strykercareers"
+  },
+  {
+   "name": "Medtronic",
+   "host": "medtronic.wd1.myworkdayjobs.com",
+   "tenant": "medtronic",
+   "site": "medtroniccareers"
+  },
+  {
+   "name": "Agilent",
+   "host": "agilent.wd5.myworkdayjobs.com",
+   "tenant": "agilent",
+   "site": "agilent_careers"
+  },
+  {
+   "name": "Danaher",
+   "host": "danaher.wd1.myworkdayjobs.com",
+   "tenant": "danaher",
+   "site": "danaherjobs"
+  },
+  {
+   "name": "Thermofisher",
+   "host": "thermofisher.wd5.myworkdayjobs.com",
+   "tenant": "thermofisher",
+   "site": "thermofishercareers"
+  },
+  {
+   "name": "IQVIA",
+   "host": "iqvia.wd1.myworkdayjobs.com",
+   "tenant": "iqvia",
+   "site": "iqvia"
+  },
+  {
+   "name": "Labcorp",
+   "host": "labcorp.wd1.myworkdayjobs.com",
+   "tenant": "labcorp",
+   "site": "External"
+  },
+  {
+   "name": "Chewy",
+   "host": "chewy.wd5.myworkdayjobs.com",
+   "tenant": "chewy",
+   "site": "external"
+  },
+  {
+   "name": "Sysco",
+   "host": "sysco.wd5.myworkdayjobs.com",
+   "tenant": "sysco",
+   "site": "syscocareers"
+  },
+  {
+   "name": "Salesforce",
+   "host": "salesforce.wd12.myworkdayjobs.com",
+   "tenant": "salesforce",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Fiserv",
+   "host": "fiserv.wd5.myworkdayjobs.com",
+   "tenant": "fiserv",
+   "site": "Ext"
+  },
+  {
+   "name": "Broadridge",
+   "host": "broadridge.wd5.myworkdayjobs.com",
+   "tenant": "broadridge",
+   "site": "Careers"
+  },
+  {
+   "name": "KeyBank",
+   "host": "keybank.wd5.myworkdayjobs.com",
+   "tenant": "keybank",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Regions",
+   "host": "regions.wd5.myworkdayjobs.com",
+   "tenant": "regions",
+   "site": "regions_careers"
+  },
+  {
+   "name": "M&T Bank",
+   "host": "mtb.wd5.myworkdayjobs.com",
+   "tenant": "mtb",
+   "site": "mtb"
+  },
+  {
+   "name": "TransUnion",
+   "host": "transunion.wd5.myworkdayjobs.com",
+   "tenant": "transunion",
+   "site": "transunion"
+  },
+  {
+   "name": "Equifax",
+   "host": "equifax.wd5.myworkdayjobs.com",
+   "tenant": "equifax",
+   "site": "External"
+  },
+  {
+   "name": "FICO",
+   "host": "fico.wd1.myworkdayjobs.com",
+   "tenant": "fico",
+   "site": "External"
+  },
+  {
+   "name": "JLL",
+   "host": "jll.wd1.myworkdayjobs.com",
+   "tenant": "jll",
+   "site": "jllcareers"
+  },
+  {
+   "name": "Equinix",
+   "host": "equinix.wd1.myworkdayjobs.com",
+   "tenant": "equinix",
+   "site": "External"
+  },
+  {
+   "name": "Zendesk",
+   "host": "zendesk.wd1.myworkdayjobs.com",
+   "tenant": "zendesk",
+   "site": "zendesk"
+  },
+  {
+   "name": "Rackspace",
+   "host": "rackspace.wd1.myworkdayjobs.com",
+   "tenant": "rackspace",
+   "site": "External"
+  },
+  {
+   "name": "Analog Devices",
+   "host": "analogdevices.wd1.myworkdayjobs.com",
+   "tenant": "analogdevices",
+   "site": "External"
+  },
+  {
+   "name": "Marvell",
+   "host": "marvell.wd1.myworkdayjobs.com",
+   "tenant": "marvell",
+   "site": "marvellcareers"
+  },
+  {
+   "name": "PTC",
+   "host": "ptc.wd1.myworkdayjobs.com",
+   "tenant": "ptc",
+   "site": "ptc"
+  },
+  {
+   "name": "Trimble",
+   "host": "trimble.wd1.myworkdayjobs.com",
+   "tenant": "trimble",
+   "site": "trimblecareers"
+  },
+  {
+   "name": "Motorola Solutions",
+   "host": "motorolasolutions.wd5.myworkdayjobs.com",
+   "tenant": "motorolasolutions",
+   "site": "Careers"
+  },
+  {
+   "name": "Dover",
+   "host": "dover.wd103.myworkdayjobs.com",
+   "tenant": "dover",
+   "site": "dover"
+  },
+  {
+   "name": "ITW",
+   "host": "itw.wd5.myworkdayjobs.com",
+   "tenant": "itw",
+   "site": "External"
+  },
+  {
+   "name": "Cigna",
+   "host": "cigna.wd5.myworkdayjobs.com",
+   "tenant": "cigna",
+   "site": "cignacareers"
+  },
+  {
+   "name": "GDIT",
+   "host": "gdit.wd5.myworkdayjobs.com",
+   "tenant": "gdit",
+   "site": "External_Career_Site"
+  },
+  {
+   "name": "Cencora",
+   "host": "myhrabc.wd5.myworkdayjobs.com",
+   "tenant": "myhrabc",
+   "site": "Global"
+  }
+ ],
+ "comeet": [
+  {
+   "name": "Artlist",
+   "uid": "85.003",
+   "token": "5831B8F2C185832C182C181B8F319BB061089"
+  }
+ ],
+ "ultipro": [
+  {
+   "name": "Arclin",
+   "base": "https://recruiting.ultipro.com/NEW1036NAUH/JobBoard/9e4ff5c7-b0b3-4663-bb4d-feefeea038d6"
+  }
+ ],
+ "allow_remote_worldwide": true,
+ "min_fit": 55,
+ "linkedin_per_run": 61,
+ "amazon_max_age_days": 7,
+ "fresh_days": 2,
+ "title_keywords": {},
+ "title_exclude": [],
+ "description_keywords": {},
+ "location_ok": [
+  "remote",
+  "worldwide",
+  "anywhere"
+ ],
+ "location_bad": [],
+ "onsite_ok_cities": [],
+ "workable_queries": [],
+ "workable_locations": [
+  "Remote"
+ ],
+ "linkedin_searches": [],
+ "domain_penalty_words": [],
+ "soft_penalty_words": {},
+ "deprioritize_employers": [],
+ "skip_companies": [],
+ "spanish_required_regex": "",
+ "spanish_required_penalty": 0,
+ "spanish_text_penalty": 0,
+ "workday_queries": [],
+ "workday_location_words": [
+  "remote"
+ ],
+ "bigco_queries": [],
+ "experience_years": {},
+ "skills_first_title_family": "",
+ "home_city": "",
+ "home_country": "",
+ "languages_spoken": [
+  "English"
+ ],
+ "timezone_note": ""
+}

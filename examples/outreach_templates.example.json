@@ -1,0 +1,8 @@
+{
+  "templates": [
+    {"id": "recruiter-note", "use": "Short note to a recruiter after applying",
+     "text": "Hi, I just applied for the {role} role at {company}. I would be glad to share more about my background if useful. Thank you!"},
+    {"id": "referral-ask", "use": "Asking a contact for a referral",
+     "text": "Hi, I am applying for the {role} role at {company} and would be grateful for a referral or an introduction to the hiring manager."}
+  ]
+}

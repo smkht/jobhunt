@@ -1,0 +1,39 @@
+{
+  "name": "Jane Example",
+  "contact": ["jane@example.com", "+00 000 000 000", "Springfield", "linkedin.com/in/jane-example"],
+  "headline_default": "Operations and Project Manager",
+  "stats": [["10+ yrs", "operations and project delivery"], ["30%", "delivery cost reduction"], ["12", "people managed"]],
+  "education": [
+    ["Master's in Business Administration", "Example University · 2008–2010"],
+    ["Bachelor's in Economics", "Example University · 2004–2008"]
+  ],
+  "credentials": ["Certified Project Manager (2018)", "Lean Six Sigma Green Belt (2016)"],
+  "skills": ["Project management", "Vendor management", "Process improvement", "Stakeholder management", "Budgeting", "Excel", "Team leadership"],
+  "languages": ["English — Native", "French — Intermediate"],
+  "jobs": [
+    {"title": "Operations Manager", "org": "Northwind Logistics, Springfield", "dates": "2020 – present",
+     "bullets": [
+       "Led a team of 12 across two warehouses and cut order-to-delivery time by 30% by redesigning the dispatch process.",
+       "Renegotiated carrier contracts with 8 vendors, saving 18% on annual transport cost.",
+       "Introduced weekly KPI reviews with department heads; on-time delivery rose from 88% to 97%.",
+       "Managed a 1.2M annual budget and reported monthly to the executive team."]},
+    {"title": "Project Manager", "org": "Contoso Retail, Springfield", "dates": "2016 – 2020",
+     "bullets": [
+       "Delivered 14 store-opening projects on time and within budget, coordinating contractors, suppliers and local authorities.",
+       "Built the project plan template and risk register adopted by all regional teams.",
+       "Ran a cross-functional steering group of 7 stakeholders and escalated blockers within 24 hours."]},
+    {"title": "Business Analyst", "org": "Fabrikam Consulting, Shelbyville", "dates": "2012 – 2016",
+     "bullets": [
+       "Analysed sales and inventory data for 5 clients and recommended process changes that improved margins by 4%.",
+       "Wrote requirement documents and trained 20 client staff on a new reporting tool."]},
+    {"title": "Customer Service Representative", "org": "Adventure Works, Shelbyville", "dates": "2010 – 2012", "section": "extra",
+     "bullets": ["Handled 60+ customer contacts a day with a 95% satisfaction score."]},
+    {"title": "Self-built tools and automations", "org": "Personal projects", "dates": "ongoing", "section": "projects",
+     "bullets": [
+       "Built a Python script that merges weekly supplier reports into one dashboard, saving about 3 hours a week.",
+       "Maintain a small web app for tracking household budgets (HTML, JavaScript, SQLite)."]},
+    {"title": "Graduate Research Assistant (Economics)", "org": "Example University", "dates": "2009 – 2010", "section": "research",
+     "bullets": ["Co-authored a conference paper on regional supply-chain resilience.", "Collected and cleaned survey data from 300 firms."]}
+  ],
+  "notes_for_tailoring": "Jane is an operations and project manager. For operations roles lead with delivery, cost and team results; for project roles lead with delivery on time and budget. Never claim software engineering experience or certifications that are not listed."
+}

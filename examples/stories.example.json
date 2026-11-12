@@ -1,0 +1,17 @@
+{
+  "answer_rules": [
+    "Give one number, your own role and one obstacle in every answer.",
+    "Answer in the order situation, action, result; keep it under two minutes.",
+    "Never claim a result you cannot explain in detail."
+  ],
+  "stories": [
+    {"id": "dispatch-redesign", "title": "Dispatch process redesign", "skills": ["process improvement", "team leadership"],
+     "situation": "Orders at two warehouses were taking too long to ship.",
+     "action": "I mapped the dispatch steps with the team, removed two hand-offs and introduced a daily cut-off.",
+     "result": "Order-to-delivery time fell by 30%.", "gaps": ["TODO: baseline delivery time in hours"]},
+    {"id": "carrier-renegotiation", "title": "Carrier contract renegotiation", "skills": ["negotiation", "vendor management"],
+     "situation": "Transport costs were rising each quarter.",
+     "action": "I compared eight carriers on price and service level and renegotiated terms with each.",
+     "result": "Annual transport cost dropped 18%.", "gaps": []}
+  ]
+}

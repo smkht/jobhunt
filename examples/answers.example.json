@@ -1,0 +1,10 @@
+{
+  "items": [
+    {"q": "Why do you want to work at {company}?", "a": "{why_us}", "needs_input": false},
+    {"q": "Tell us about yourself", "a": "{summary}", "needs_input": false},
+    {"q": "What are your salary expectations?", "a": "TODO: your figure or range (check the posting's stated range first).", "needs_input": true},
+    {"q": "When can you start?", "a": "Within four weeks of an offer.", "needs_input": false},
+    {"q": "Do you need visa sponsorship?", "a": "No, I am authorised to work in my country of residence.", "needs_input": false},
+    {"q": "How did you hear about this role?", "a": "TODO: company site / job board / referral (name the referrer).", "needs_input": true}
+  ]
+}
