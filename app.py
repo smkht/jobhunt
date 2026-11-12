@@ -302,7 +302,7 @@ def start(name, cmd, on_done=None):
         return False
     OUT.mkdir(exist_ok=True)
     f = (OUT / f"{name}.log").open("w")
-    p = subprocess.Popen(cmd, cwd=ROOT, stdout=f, stderr=subprocess.STDOUT, env=os.environ.copy())
+    p = subprocess.Popen(cmd, cwd=ROOT, stdout=f, stderr=subprocess.STDOUT, env={**os.environ, "PYTHONUNBUFFERED": "1"})  # live log in the dashboard
     PROCS[name] = {"proc": p, "log": OUT / f"{name}.log"}
     if on_done:
         threading.Thread(target=lambda: (p.wait(), on_done(p.returncode)), daemon=True).start()

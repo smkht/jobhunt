@@ -38,7 +38,11 @@ def draft_of(r):
 def referral(company):
     c = (company or "").lower()
     for p in load("network.json", {}).get("contacts", []):
-        if any(m in c for m in p["match"]):
+        if not isinstance(p, dict) or not p.get("contact"):
+            continue
+        words = [str(m).lower().strip() for m in (p.get("match") or [p.get("company", "")]) if str(m).strip()]   # 'match' = company words; falls back to 'company'
+        if c and any(m in c for m in words):
+            p.setdefault("relation", "")
             return p
     return None
 

@@ -981,9 +981,17 @@ def main():
         if sc < CFG["min_score"]:
             drops["low title/keyword score"] = drops.get("low title/keyword score", 0) + 1
             continue
+        pay, pay_basis = salary.salary_for(j["title"], j["company"], j["location"], j["desc"])
+        note = j.get("_note") or fit.note(a)
+        cmp = salary.compare(pay)  # pay only re-ranks: at/above your expectation moves up, below is kept and flagged for your review
+        if cmp in ("above", "meets"):
+            sc = min(100, sc + (10 if cmp == "above" else 5))
+        elif cmp == "below":
+            sc = max(1, sc - 10)
+            note = f"💶 Pay ({'estimated' if pay_basis.startswith('estimate') else 'stated'}) is below your expectation: kept for your review | " + note
         row = dict(id=i, found=datetime.now().strftime("%Y-%m-%d"), score=sc, status="new", title=j["title"],
                    company=j["company"], location=j["location"], source=j["source"],
-                   posted=j["posted"].strftime("%Y-%m-%d") if j["posted"] else "", url=j["url"], notes=j.get("_note") or fit.note(a), applied_on="", followup_on="", fit=a["fit"], apply_url=j["url"] if j["source"] == "amazon" else j.get("_direct", ""), apply_via={"amazon": "Amazon careers page (direct)"}.get(j["source"], "company posting (original read)" if j.get("_direct") else ""), salary=salary.salary_for(j["title"], j["company"], j["location"], j["desc"])[0], salary_basis=salary.salary_for(j["title"], j["company"], j["location"], j["desc"])[1])
+                   posted=j["posted"].strftime("%Y-%m-%d") if j["posted"] else "", url=j["url"], notes=note, applied_on="", followup_on="", fit=a["fit"], apply_url=j["url"] if j["source"] == "amazon" else j.get("_direct", ""), apply_via={"amazon": "Amazon careers page (direct)"}.get(j["source"], "company posting (original read)" if j.get("_direct") else ""), salary=pay, salary_basis=pay_basis)
         new.append(row)
         (paths.OUT / "jobs").mkdir(parents=True, exist_ok=True)
         (paths.OUT / "jobs" / f"{i}.json").write_text(json.dumps({**row, "desc": j["desc"][:6000], "mode": j.get("mode", "")}, ensure_ascii=False))

@@ -56,6 +56,11 @@ Twice a day on macOS: `./install_schedule.sh`.
 - Uses free public sources (LinkedIn public pages, company career boards, remote job boards). Sources change; some searches will find nothing on some days.
 - The AI can be wrong. Read every draft before you use it.
 
+## If something fails
+Open this folder in Claude (Claude Code, or the Code tab in the Claude desktop app) and say "help me set up jobhunt" or paste the error.
+The folder has a `CLAUDE.md` guide, so Claude knows how to run the app, finish the setup with you in chat, and fix common problems
+(expired CLI login, unreadable PDF, busy port, empty board). It works on a throwaway copy of your data while testing and never applies for you.
+
 ## Test without an AI
 `TAILOR_MOCK=1 python3 app.py` uses a stand-in for the AI so you can try the whole flow with the sample profile.
 

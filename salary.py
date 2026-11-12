@@ -4,7 +4,7 @@
  2. Otherwise, IF you configured salary bands, an INDICATIVE estimate from the role title, labelled 'estimate'. With no bands the estimate is skipped.
 Config keys (DATA/config.json): "salary_bands": [[title regex, low, high, label], ...] (first match wins, values in thousands per year),
 "salary_default": [low, high, label], "salary_currency": "EUR" / "USD" / "GBP" (default EUR), "salary_premium_regex": "employer|names" (+15-20% for these payers),
-"salary_region_note": "Spain gross" (text shown in the estimate basis).
+"salary_region_note": "Spain gross" (text shown in the estimate basis), "salary_expectation": 45000 (gross per year; roles at or above it rank higher, lower-paid ones are flagged for review, never hidden).
 Run `python3 salary.py` to fill every row in tracker.csv that has no salary yet."""
 import csv, json, re
 import paths
@@ -71,6 +71,50 @@ def estimate(title, company="", location=""):
     sym = SYMBOLS.get((CFG.get("salary_currency") or "EUR").upper(), "€")
     note = CFG.get("salary_region_note") or "gross"
     return f"{sym}{lo}-{hi}k/yr", f"estimate: {label}, {note}{', premium employer' if is_prem else ''}"
+
+
+def to_yearly(text):
+    """'EUR 45,000 per year' / '45k' / '3,500 a month' / '25 per hour' -> 45000 / 45000 / 42000 / 44000 (gross per year); None if no number."""
+    t = (text or "").lower().replace("\u00a0", " ")
+    m = re.search(r"(\d[\d.,\s]*\d|\d)\s*(k\b)?", t)
+    if not m:
+        return None
+    raw = re.sub(r"[\s.,]", "", m.group(1)) if re.search(r"\d[.,\s]\d{3}\b", m.group(1)) else m.group(1).replace(",", ".").replace(" ", "")
+    try:
+        v = float(raw)
+    except ValueError:
+        return None
+    if m.group(2):
+        v *= 1000
+    if re.search(r"hour|/h\b|hourly|per h\b", t):
+        return round(v * 1760)
+    if re.search(r"month|/mo\b|monthly|mes\b", t):
+        return round(v * 12)
+    return round(v * 1000) if v < 1000 else round(v)
+
+
+def _range(sal):
+    """'€54,000-79,200/yr' or '€42-70k/yr' -> (54000, 79200, '€'); None when it is not a yearly range."""
+    m = re.match(r"\s*([€$£])?\s*([\d,]+)\s*k?\s*-\s*([\d,]+)\s*(k)?\s*/yr", sal or "")
+    if not m:
+        return None
+    lo, hi = (int(x.replace(",", "")) for x in (m.group(2), m.group(3)))
+    if m.group(4) or hi < 1000:
+        lo, hi = lo * 1000, hi * 1000
+    return lo, hi, m.group(1) or ""
+
+
+def compare(sal):
+    """Posting pay vs your expectation (config 'salary_expectation', gross per year): 'above' (even the low end meets it), 'meets' (the range reaches it),
+    'below' (the whole range is under it) or '' (no expectation, no range, or a different currency). Pay never hides a role: it only moves it up or flags it."""
+    exp = CFG.get("salary_expectation")
+    r = _range(sal)
+    if not exp or not r:
+        return ""
+    lo, hi, sym = r
+    if sym and sym != SYMBOLS.get((CFG.get("salary_currency") or "EUR").upper(), "€"):
+        return ""
+    return "above" if lo >= exp else "meets" if hi >= exp else "below"
 
 
 def salary_for(title, company, location, desc):

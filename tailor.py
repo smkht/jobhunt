@@ -48,7 +48,8 @@ Rules:
 - jd_keywords: the 12-20 most important requirement phrases from the posting (as written), used for a coverage check.
 - cover_letter: SHORT and warm, 90-130 words, in this shape. Greeting "Hi <Company> team," (or the hiring manager's name if the posting gives one). Line 1: a genuine, cheerful hook that names something specific from the posting or the company (product, mission, way of working) and says the candidate is genuinely interested in it. Line 2-3: "I'd love to bring ..." followed by 2 concrete things the candidate has done that match the posting's main duties, each with one number or fact from the profile, in the posting's own words. Optional last clause: one thing the candidate is keen to learn, phrased positively (never an apology, never a list of gaps). Close with a friendly, specific invitation ("Would love to chat about ..."). Sign with the candidate's first name ({first}). Tone: friendly, enthusiastic, human, confident; contractions are fine; no corporate filler ("I am writing to apply", "I believe I would be a strong fit"), no flattery, no more than one exclamation mark. VARY THE OPENER every time: do NOT start with "I'm excited" or "Being ... is work I'm excited about"; rotate between a direct observation about the product, a short question, a one-line story from the candidate's own work, a plain statement of why this role caught the candidate's eye, or a specific detail from the posting; vary sentence length and structure, mix a short sentence in, write like a real person typing a quick note (a casual aside or dash is fine), and avoid triplets and polished-sounding lists. First person. Facts only from the profile.{style}
 - why_us: keep it short and upbeat (50-80 words), same voice.
-Return ONLY JSON: {{"headline": str, "summary": str, "skills": [str], "jd_keywords": [str], "jobs": [{{"i": <index of job in profile>, "bullets": [str]}}...], "cover_letter": str, "why_us": str, "gaps": [str], "fit_pitch": str (one line)}}"""
+- other_experience (in the profile, may be empty): side skills, hobbies, own or family projects, volunteering. Use an item ONLY when this posting asks for that skill or setting (e.g. cooking or household management for a personal-assistant role, a coding hobby for a tooling role). Then you may add it to skills, mention it in the letter, and put 0-3 short lines under "extra" for an Additional Experience section. Never present it as a job, never inflate it, and leave "extra" empty when nothing in it fits the posting.
+Return ONLY JSON: {{"headline": str, "summary": str, "skills": [str], "jd_keywords": [str], "jobs": [{{"i": <index of job in profile>, "bullets": [str]}}...], "cover_letter": str, "why_us": str, "gaps": [str], "extra": [str], "fit_pitch": str (one line)}}"""
 
 CSS = """
 @page{size:A4;margin:12mm 15mm}*{box-sizing:border-box}body{margin:0;font:10pt/1.32 Calibri,Arial,Helvetica,sans-serif;color:#111}
@@ -77,11 +78,12 @@ def render(t):
     research = "".join(f'<div class="ln"><b>{e(short(P["jobs"][i]["title"]))}</b>, {e(P["jobs"][i]["org"])} | {e(P["jobs"][i]["dates"])}</div>'
                        for i in range(len(P["jobs"])) if section(i) == "research")
     return f"""<!doctype html><meta charset=utf-8><title>{P['name']} - CV</title><style>{CSS}</style>
-<h1>{P['name']}</h1><div class="contact">{e(' | '.join(P['contact']))}</div>
+<h1>{P['name']}</h1><div class="contact">{e(' | '.join(x for x in P['contact'] if x))}</div>
 <div class="hl">{e(t['headline'])}</div>
 <h2>Professional Summary</h2><p>{e(t['summary'])}</p>
 <h2>Core Skills</h2><p>{e(skills)}</p>
 <h2>Professional Experience</h2>{exp}{more}
+{('<h2>Additional Experience</h2><ul>' + ''.join(f'<li>{e(x)}</li>' for x in t.get('extra', [])) + '</ul>') if t.get('extra') else ''}
 <h2>Education</h2>{''.join(f'<div class="ln"><b>{e(a)}</b>, {e(b)}</div>' for a, b in P['education'])}{research}
 <h2>Certifications and Languages</h2><p>{e(' | '.join(P['credentials']))}</p><p>Languages: {e(' | '.join(P['languages']))}</p>"""
 
@@ -149,6 +151,7 @@ def clean(t):
     for k in ("headline", "summary", "cover_letter", "fit_pitch", "why_us"):
         t[k] = str(t.get(k, ""))
     t["gaps"] = [str(g) for g in t.get("gaps", [])]
+    t["extra"] = [str(x) for x in t.get("extra", []) if str(x).strip()][:3]
     if not t["jobs"] or not t["summary"]:
         raise RuntimeError("model reply missing jobs/summary")
     return t

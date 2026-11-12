@@ -333,7 +333,8 @@ _SYNC_KEY = None
 
 
 def _profile_text(p):
-    parts = [p.get("headline_default", ""), " ".join(p.get("skills", [])), " ".join(p.get("credentials", [])), " ".join(p.get("languages", []))]
+    flat = lambda v: " ".join(" ".join(map(str, x)) if isinstance(x, (list, tuple)) else str(x) for x in (v or []))   # skills may be [group, "a · b"] pairs
+    parts = [p.get("headline_default", ""), flat(p.get("skills")), flat(p.get("credentials")), flat(p.get("languages")), flat(p.get("other_experience"))]
     parts += [" ".join(map(str, e)) if isinstance(e, (list, tuple)) else str(e) for e in p.get("education", [])]
     for j in p.get("jobs", []):
         parts += [j.get("title", ""), j.get("org", ""), " ".join(j.get("bullets", []))]
